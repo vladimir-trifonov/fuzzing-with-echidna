@@ -1,0 +1,77 @@
+/Users/vladimirtrifonov/src/playground/solidity/rare-skills/advanced-solidity-bootcamp/fuzzing-with-echidna/echidna-exercise-4/src/Template.sol
+  1 |     | // SPDX-License-Identifier: AGPL-3.0
+  2 |     | pragma solidity ^0.5.0;
+  3 |     | 
+  4 |     | import "./Token.sol";
+  5 |     | 
+  6 |     | /// @dev Run the template with
+  7 |     | ///      ```
+  8 |     | ///      solc-select use 0.5.0
+  9 |     | ///      echidna ./src/Template.sol --contract TestToken --test-mode assertion
+ 10 |     | ///      ```
+ 11 |     | ///      or by providing a config
+ 12 |     | ///      ```
+ 13 |     | ///      echidna ./src/Template.sol --contract TestToken --config ./config.yaml
+ 14 | *r  | ///      ```
+ 15 |     | contract TestToken is Token {
+ 16 |     |     constructor() public {
+ 17 |     |         balances[msg.sender] = 2**256 - 1;
+ 18 |     |     }
+ 19 |     | 
+ 20 | *r  |     function transfer(address to, uint256 value) public {
+ 21 | *r  |         uint256 fromBalance = balances[msg.sender];
+ 22 | *r  |         uint256 toBalance = balances[to];
+ 23 | *r  |         super.transfer(to, value);
+ 24 | *   |         assert(balances[msg.sender] <= fromBalance);
+ 25 | *   |         assert(balances[to] >= toBalance);
+ 26 |     |     }
+ 27 |     | }
+
+/Users/vladimirtrifonov/src/playground/solidity/rare-skills/advanced-solidity-bootcamp/fuzzing-with-echidna/echidna-exercise-4/src/Token.sol
+  1 |     | // SPDX-License-Identifier: AGPL-3.0
+  2 |     | pragma solidity ^0.5.0;
+  3 |     | 
+  4 |     | contract Ownable {
+  5 | *   |     address public owner = msg.sender;
+  6 |     | 
+  7 | *r  |     function transferOwnership(address newOwner) public onlyOwner {
+  8 | *   |         owner = newOwner;
+  9 |     |     }
+ 10 |     | 
+ 11 |     |     modifier onlyOwner() {
+ 12 | *r  |         require(msg.sender == owner, "Ownable: Caller is not the owner.");
+ 13 |     |         _;
+ 14 |     |     }
+ 15 |     | }
+ 16 |     | 
+ 17 |     | contract Pausable is Ownable {
+ 18 |     |     bool private _paused;
+ 19 |     | 
+ 20 | *   |     function paused() public view returns (bool) {
+ 21 | *   |         return _paused;
+ 22 |     |     }
+ 23 |     | 
+ 24 | *r  |     function pause() public onlyOwner {
+ 25 | *   |         _paused = true;
+ 26 |     |     }
+ 27 |     | 
+ 28 | *r  |     function resume() public onlyOwner {
+ 29 | *   |         _paused = false;
+ 30 |     |     }
+ 31 |     | 
+ 32 |     |     modifier whenNotPaused() {
+ 33 | *r  |         require(!_paused, "Pausable: Contract is paused.");
+ 34 |     |         _;
+ 35 |     |     }
+ 36 |     | }
+ 37 |     | 
+ 38 |     | contract Token is Ownable, Pausable {
+ 39 | *   |     mapping(address => uint256) public balances;
+ 40 |     | 
+ 41 | *r  |     function transfer(address to, uint256 value) public whenNotPaused {
+ 42 | *r  |         require(balances[msg.sender] >= value, "Insufficient balance.");
+ 43 | *   |         balances[msg.sender] -= value;
+ 44 | *   |         balances[to] += value;
+ 45 |     |     }
+ 46 |     | }
+

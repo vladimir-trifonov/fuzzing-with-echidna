@@ -1,0 +1,5 @@
+testLimit: 100000
+filterBlacklist: true
+filterFunctions: ["TokenWhaleChallenge.isComplete()"]
+coverage: true
+corpusDir: corpus

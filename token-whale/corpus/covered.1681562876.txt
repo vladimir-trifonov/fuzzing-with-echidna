@@ -1,0 +1,80 @@
+/Users/vladimirtrifonov/src/playground/solidity/rare-skills/advanced-solidity-bootcamp/fuzzing-with-echidna/token-whale/src/Template.sol
+  1 |     | // SPDX-License-Identifier: AGPL-3.0
+  2 |     | pragma solidity ^0.4.21;
+  3 |     | 
+  4 |     | import "./TokenWhaleChallenge.sol";
+  5 |     | 
+  6 |     | /// @dev Run the template with
+  7 |     | ///      ```
+  8 |     | ///      solc-select use 0.4.26
+  9 |     | ///      echidna ./src/Template.sol --contract TestToken --config ./config.yaml
+ 10 | *r  | ///      ```
+ 11 |     | contract TestToken is TokenWhaleChallenge {
+ 12 |     |     address echidna = msg.sender;
+ 13 |     | 
+ 14 |     |     constructor() public TokenWhaleChallenge(echidna) {}
+ 15 |     | 
+ 16 |     |     function echidna_property() public view returns (bool) {
+ 17 |     |         return !super.isComplete();
+ 18 |     |     }
+ 19 |     | }
+ 20 |     | 
+
+/Users/vladimirtrifonov/src/playground/solidity/rare-skills/advanced-solidity-bootcamp/fuzzing-with-echidna/token-whale/src/TokenWhaleChallenge.sol
+  1 |     | // SPDX-License-Identifier: AGPL-3.0
+  2 |     | pragma solidity ^0.4.21;
+  3 |     | 
+  4 |     | contract TokenWhaleChallenge {
+  5 |     |     address player;
+  6 |     | 
+  7 | *   |     uint256 public totalSupply;
+  8 | *   |     mapping(address => uint256) public balanceOf;
+  9 | *   |     mapping(address => mapping(address => uint256)) public allowance;
+ 10 |     | 
+ 11 | *   |     string public name = "Simple ERC20 Token";
+ 12 | *   |     string public symbol = "SET";
+ 13 | *   |     uint8 public decimals = 18;
+ 14 |     | 
+ 15 |     |     function TokenWhaleChallenge(address _player) public {
+ 16 |     |         player = _player;
+ 17 |     |         totalSupply = 1000;
+ 18 |     |         balanceOf[player] = 1000;
+ 19 |     |     }
+ 20 |     | 
+ 21 | *   |     function isComplete() public view returns (bool) {
+ 22 | *   |         return balanceOf[player] >= 1000000;
+ 23 |     |     }
+ 24 |     | 
+ 25 |     |     event Transfer(address indexed from, address indexed to, uint256 value);
+ 26 |     | 
+ 27 | *   |     function _transfer(address to, uint256 value) internal {
+ 28 | *   |         balanceOf[msg.sender] -= value;
+ 29 | *   |         balanceOf[to] += value;
+ 30 |     | 
+ 31 | *   |         emit Transfer(msg.sender, to, value);
+ 32 |     |     }
+ 33 |     | 
+ 34 | *r  |     function transfer(address to, uint256 value) public {
+ 35 | *r  |         require(balanceOf[msg.sender] >= value);
+ 36 | *   |         require(balanceOf[to] + value >= balanceOf[to]);
+ 37 |     | 
+ 38 | *   |         _transfer(to, value);
+ 39 |     |     }
+ 40 |     | 
+ 41 |     |     event Approval(address indexed owner, address indexed spender, uint256 value);
+ 42 |     | 
+ 43 | *r  |     function approve(address spender, uint256 value) public {
+ 44 | *   |         allowance[msg.sender][spender] = value;
+ 45 | *   |         emit Approval(msg.sender, spender, value);
+ 46 |     |     }
+ 47 |     | 
+ 48 | *r  |     function transferFrom(address from, address to, uint256 value) public {
+ 49 | *r  |         require(balanceOf[from] >= value);
+ 50 | *r  |         require(balanceOf[to] + value >= balanceOf[to]);
+ 51 | *r  |         require(allowance[from][msg.sender] >= value);
+ 52 |     | 
+ 53 | *   |         allowance[from][msg.sender] -= value;
+ 54 | *   |         _transfer(to, value);
+ 55 |     |     }
+ 56 |     | }
+

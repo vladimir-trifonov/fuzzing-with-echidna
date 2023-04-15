@@ -1,0 +1,6 @@
+testLimit: 100000
+testMode: "assertion"
+coverage: true
+corpusDir: corpus
+filterBlacklist: true
+filterFunctions: ["TestDex._getAddress()"]
