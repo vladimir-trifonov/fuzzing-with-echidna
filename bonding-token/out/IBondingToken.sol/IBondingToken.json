@@ -1,0 +1,822 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Buy",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Sell",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "buy",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculatePriceForTokens",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculateTokensForPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "sell",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "buy(uint256)": "d96a094a",
+    "calculatePriceForTokens(uint256)": "465fa408",
+    "calculateTokensForPrice(uint256)": "b9615a6e",
+    "sell(uint256)": "e4849b32"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Buy\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Sell\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"buy\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"calculatePriceForTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"calculateTokensForPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"sell\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface for a bonding token contract that allows buying and selling of tokens at a calculated price.\",\"events\":{\"Buy(address,uint256)\":{\"details\":\"Emitted when tokens are bought.\",\"params\":{\"account\":\"The account that bought the tokens.\",\"amount\":\"The amount of tokens bought.\"}},\"Sell(address,uint256)\":{\"details\":\"Emitted when tokens are sold.\",\"params\":{\"account\":\"The account that sold the tokens.\",\"amount\":\"The amount of tokens sold.\"}}},\"kind\":\"dev\",\"methods\":{\"buy(uint256)\":{\"details\":\"Buy tokens with ETH at a calculated price.\",\"params\":{\"amount\":\"The amount of tokens to buy.\"}},\"calculatePriceForTokens(uint256)\":{\"details\":\"Calculate the price for a given amount of tokens.\",\"params\":{\"amount\":\"The amount of tokens to calculate the price for.\"},\"returns\":{\"_0\":\"A The calculated price for the given amount of tokens.\"}},\"calculateTokensForPrice(uint256)\":{\"details\":\"Calculate the amount of tokens for a given price.\",\"params\":{\"amount\":\"The price to calculate the amount of tokens for.\"},\"returns\":{\"_0\":\"A The calculated amount of tokens for the given price.\"}},\"sell(uint256)\":{\"details\":\"Sell tokens at a calculated price and receive ETH.\",\"params\":{\"amount\":\"The amount of tokens to sell.\"}}},\"title\":\"IBondingToken\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/IBondingToken.sol\":\"IBondingToken\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc1363-payable-token/=lib/erc1363-payable-token/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"src/IBondingToken.sol\":{\"keccak256\":\"0x0ba024cd7ee1bf4bbbda17503a59408fb4cbcb1b943e482fe9c44da2e85dc919\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ae80d1168db695dc1626f4078e74158481e945155df455b92fa24f7f7dadc0be\",\"dweb:/ipfs/QmQ8pLNvXxGQabcng3MpFCix8FTeFfMs1h3118yjKnoGnJ\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Buy",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Sell",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "buy"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "calculatePriceForTokens",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "calculateTokensForPrice",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "sell"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "buy(uint256)": {
+            "details": "Buy tokens with ETH at a calculated price.",
+            "params": {
+              "amount": "The amount of tokens to buy."
+            }
+          },
+          "calculatePriceForTokens(uint256)": {
+            "details": "Calculate the price for a given amount of tokens.",
+            "params": {
+              "amount": "The amount of tokens to calculate the price for."
+            },
+            "returns": {
+              "_0": "A The calculated price for the given amount of tokens."
+            }
+          },
+          "calculateTokensForPrice(uint256)": {
+            "details": "Calculate the amount of tokens for a given price.",
+            "params": {
+              "amount": "The price to calculate the amount of tokens for."
+            },
+            "returns": {
+              "_0": "A The calculated amount of tokens for the given price."
+            }
+          },
+          "sell(uint256)": {
+            "details": "Sell tokens at a calculated price and receive ETH.",
+            "params": {
+              "amount": "The amount of tokens to sell."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":erc1363-payable-token/=lib/erc1363-payable-token/",
+        ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/IBondingToken.sol": "IBondingToken"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/IBondingToken.sol": {
+        "keccak256": "0x0ba024cd7ee1bf4bbbda17503a59408fb4cbcb1b943e482fe9c44da2e85dc919",
+        "urls": [
+          "bzz-raw://ae80d1168db695dc1626f4078e74158481e945155df455b92fa24f7f7dadc0be",
+          "dweb:/ipfs/QmQ8pLNvXxGQabcng3MpFCix8FTeFfMs1h3118yjKnoGnJ"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/IBondingToken.sol",
+    "id": 2005,
+    "exportedSymbols": {
+      "IBondingToken": [
+        2004
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:1614:13",
+    "nodes": [
+      {
+        "id": 1960,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:13",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".15"
+        ]
+      },
+      {
+        "id": 2004,
+        "nodeType": "ContractDefinition",
+        "src": "200:1445:13",
+        "nodes": [
+          {
+            "id": 1968,
+            "nodeType": "EventDefinition",
+            "src": "398:51:13",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1962,
+              "nodeType": "StructuredDocumentation",
+              "src": "230:163:13",
+              "text": " @dev Emitted when tokens are bought.\n @param account The account that bought the tokens.\n @param amount The amount of tokens bought."
+            },
+            "eventSelector": "e3d4187f6ca4248660cc0ac8b8056515bac4a8132be2eca31d6d0cc170722a7e",
+            "name": "Buy",
+            "nameLocation": "404:3:13",
+            "parameters": {
+              "id": 1967,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1964,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "424:7:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1968,
+                  "src": "408:23:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1963,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "408:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1966,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "441:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1968,
+                  "src": "433:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1965,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "433:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "407:41:13"
+            }
+          },
+          {
+            "id": 1975,
+            "nodeType": "EventDefinition",
+            "src": "621:52:13",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1969,
+              "nodeType": "StructuredDocumentation",
+              "src": "459:157:13",
+              "text": " @dev Emitted when tokens are sold.\n @param account The account that sold the tokens.\n @param amount The amount of tokens sold."
+            },
+            "eventSelector": "5e5e995ce3133561afceaa51a9a154d5db228cd7525d34df5185582c18d3df09",
+            "name": "Sell",
+            "nameLocation": "627:4:13",
+            "parameters": {
+              "id": 1974,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1971,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "648:7:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1975,
+                  "src": "632:23:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1970,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "632:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1973,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "665:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1975,
+                  "src": "657:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1972,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "657:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "631:41:13"
+            }
+          },
+          {
+            "id": 1981,
+            "nodeType": "FunctionDefinition",
+            "src": "800:46:13",
+            "nodes": [],
+            "documentation": {
+              "id": 1976,
+              "nodeType": "StructuredDocumentation",
+              "src": "679:116:13",
+              "text": " @dev Buy tokens with ETH at a calculated price.\n @param amount The amount of tokens to buy."
+            },
+            "functionSelector": "d96a094a",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "buy",
+            "nameLocation": "809:3:13",
+            "parameters": {
+              "id": 1979,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1978,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "821:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1981,
+                  "src": "813:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1977,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "813:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "812:16:13"
+            },
+            "returnParameters": {
+              "id": 1980,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "845:0:13"
+            },
+            "scope": 2004,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1987,
+            "nodeType": "FunctionDefinition",
+            "src": "986:39:13",
+            "nodes": [],
+            "documentation": {
+              "id": 1982,
+              "nodeType": "StructuredDocumentation",
+              "src": "856:125:13",
+              "text": " @dev Sell tokens at a calculated price and receive ETH.\n @param amount The amount of tokens to sell."
+            },
+            "functionSelector": "e4849b32",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "sell",
+            "nameLocation": "995:4:13",
+            "parameters": {
+              "id": 1985,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1984,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1008:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1987,
+                  "src": "1000:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1983,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1000:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "999:16:13"
+            },
+            "returnParameters": {
+              "id": 1986,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1024:0:13"
+            },
+            "scope": 2004,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1995,
+            "nodeType": "FunctionDefinition",
+            "src": "1253:81:13",
+            "nodes": [],
+            "documentation": {
+              "id": 1988,
+              "nodeType": "StructuredDocumentation",
+              "src": "1035:213:13",
+              "text": " @dev Calculate the price for a given amount of tokens.\n @param amount The amount of tokens to calculate the price for.\n @return A The calculated price for the given amount of tokens."
+            },
+            "functionSelector": "465fa408",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calculatePriceForTokens",
+            "nameLocation": "1262:23:13",
+            "parameters": {
+              "id": 1991,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1990,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1294:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1995,
+                  "src": "1286:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1989,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1286:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1285:16:13"
+            },
+            "returnParameters": {
+              "id": 1994,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1993,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1995,
+                  "src": "1325:7:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1992,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1325:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1324:9:13"
+            },
+            "scope": 2004,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2003,
+            "nodeType": "FunctionDefinition",
+            "src": "1562:81:13",
+            "nodes": [],
+            "documentation": {
+              "id": 1996,
+              "nodeType": "StructuredDocumentation",
+              "src": "1344:213:13",
+              "text": " @dev Calculate the amount of tokens for a given price.\n @param amount The price to calculate the amount of tokens for.\n @return A The calculated amount of tokens for the given price."
+            },
+            "functionSelector": "b9615a6e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calculateTokensForPrice",
+            "nameLocation": "1571:23:13",
+            "parameters": {
+              "id": 1999,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1998,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1603:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2003,
+                  "src": "1595:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1997,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1595:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1594:16:13"
+            },
+            "returnParameters": {
+              "id": 2002,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2001,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2003,
+                  "src": "1634:7:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2000,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1634:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1633:9:13"
+            },
+            "scope": 2004,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IBondingToken",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 1961,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:142:13",
+          "text": " @title IBondingToken\n @dev Interface for a bonding token contract that allows buying and selling of tokens at a calculated price."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          2004
+        ],
+        "name": "IBondingToken",
+        "nameLocation": "210:13:13",
+        "scope": 2005,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 13
+}

@@ -1,0 +1,7 @@
+testLimit: 100000
+coverage: true
+corpusDir: corpus
+seqLen: 25
+testMode: assertion
+balanceContract: 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+# solcLibs: ["src/utils/BondingCurve.sol:BondingCurve"]
