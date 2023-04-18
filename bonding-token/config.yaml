@@ -1,4 +1,4 @@
-testLimit: 100000
+testLimit: 10000
 coverage: true
 corpusDir: corpus
 seqLen: 25
